@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<imod version="1.2.53" parameter_db="false">
+	<group name="ONEWIRE channels group">
+		<access-channel name="Modbus">
+			<protocol name="MODBUS"/>
+			<port>"ET-1502-TCP"</port>
+		</access-channel>
+
+		<source-channel name="OneWire">
+			<protocol name="ONEWIRE"/>
+			<port>"ET-0.0.0.0"</port>
+			<gap>"0"</gap>
+			<cycle>"10"</cycle>
+		</source-channel>
+
+	</group>
+
+	<group name="THERMOMETER_DS18B20 parameters group">
+		<parameter type="real32">
+			<id>"THERM1_1"</id>
+			<description>"THERMOMETER_DS18B20"</description>
+			<source-channel channel-name="OneWire" parameter-id="2876018F050000:temperature"/>
+			<access-channel channel-name="Modbus" parameter-id="11000"/>
+		</parameter>
+
+		<parameter type="real32">
+			<id>"THERM2_3"</id>
+			<description>"THERMOMETER_DS18B20"</description>
+			<source-channel channel-name="OneWire" parameter-id="2876018F050000:temperature9"/>
+			<access-channel channel-name="Modbus" parameter-id="11002"/>
+		</parameter>
+
+		<parameter type="real32">
+			<id>"THERM3_5"</id>
+			<description>"THERMOMETER_DS18B20"</description>
+			<source-channel channel-name="OneWire" parameter-id="2876018F050000:temperature10"/>
+			<access-channel channel-name="Modbus" parameter-id="11004"/>
+		</parameter>
+
+		<parameter type="real32">
+			<id>"THERM4_7"</id>
+			<description>"THERMOMETER_DS18B20"</description>
+			<source-channel channel-name="OneWire" parameter-id="2876018F050000:temperature11"/>
+			<access-channel channel-name="Modbus" parameter-id="11006"/>
+		</parameter>
+
+		<parameter type="real32">
+			<id>"THERM5_9"</id>
+			<description>"THERMOMETER_DS18B20"</description>
+			<source-channel channel-name="OneWire" parameter-id="2876018F050000:temperature12"/>
+			<access-channel channel-name="Modbus" parameter-id="11008"/>
+		</parameter>
+
+	</group>
+
+</imod>
