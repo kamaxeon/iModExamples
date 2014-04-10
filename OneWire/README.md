@@ -56,8 +56,8 @@ La información de este fichero se usará para los ejemplos como base.
 
 A continuación se definen los siguientes ejemplos:
 
-[Primero](primero/README.md): Se configura para que guarde el valor de la temperatura, sólo guardando el último registro.
+[Primero](primero): Se configura para que guarde el valor de la temperatura, sólo guardando el último registro.
 
-[Segundo](segundo/README.md): Exactamente igual que el anterior pero se activa la función de dataloger para recoger los valores cada n segundos en un csv
+[Segundo](segundo): Exactamente igual que el anterior pero se activa la función de dataloger para recoger los valores cada n segundos en un csv
 
 [Tercero](tercero): Difiere del segundo al guardar los datos en un base de datos SQLite

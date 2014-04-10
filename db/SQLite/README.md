@@ -3,7 +3,7 @@ Uso de SQLite
 
 ## Base de datos genérica
 
-Por defecto el dispositivo genera una base de datos en */mnt/ramdisk/modbus.db* que es la que se comunica con el modbux que genera iMod.
+Por defecto el dispositivo genera una base de datos en */mnt/ramdisk/modbus.db* que es la que se comunica con el modbus que genera iMod.
 
 ## Base de datos almacenar registros
 
