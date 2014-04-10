@@ -26,4 +26,6 @@ Name|Value|timeEnter
 THERMOMETER_DS18B20|20|2014-04-10 03:31:49
 ```
 
-Ahora puedes continuar con el [segundo](..segundo/README.md) :-)
+Ahora puedes continuar con el segundo[0] :-)
+
+[0]: ../segundo
