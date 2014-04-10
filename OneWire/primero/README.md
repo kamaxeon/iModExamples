@@ -25,3 +25,5 @@ sqlite> select name, value, timeEnter from dane WHERE id='THERM_ONEWIRE';
 Name|Value|timeEnter
 THERMOMETER_DS18B20|20|2014-04-10 03:31:49
 ```
+
+Ahora puedes continuar con el [segundo](..segundo/README.md) :-)
