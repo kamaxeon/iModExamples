@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <imod version="1.2.53">
-	<group name="ONEWIRE channels group">
+	<group name="EjemploTres">
 		<access-channel name="Modbus">
 			<protocol name="MODBUS"/>
 			<port>"ET-1502-TCP"</port>
 		</access-channel>
 
-		<message-channel channel-name="SQLite">
+		<message-channel name="Database">
 			<protocol name="SQL"/>
 				<port>"/mnt/data/SQL/datos.db"</port>
-				<cycle>"1 * * * *"</cycle>
+				<cycle>"10"</cycle>
 		</message-channel>
+		<message id="update">
+			<![CDATA[ "INSERT INTO X (Value, Date) VALUES ('REG_VALUE[THIS]','TIME');"]]>
+		</message>
 
 		<source-channel name="OneWire">
 			<protocol name="ONEWIRE"/>
@@ -19,24 +22,22 @@
 			<cycle>"10"</cycle>
 		</source-channel>
 
-		<message id="Alarm1">
-			<![CDATA[INSERT INTO TABLE (value, name, description, Date) VALUES ('REG_VALUE[11001]','REG_NAME[11001]', 'Some text message', 'NOW()')]]>
-		</message>
-
-	</group>
-
-	<group name="THERMOMETER_DS18B20 parameters group">
 		<parameter type="int16">
 			<id>"THERM_ONEWIRE"</id>
 			<description>"THERMOMETER_DS18B20"</description>
 			<source-channel channel-name="OneWire" parameter-id="2876018F050000:temperature9"/>
 			<access-channel channel-name="Modbus" parameter-id="11001"/>
 		</parameter>
+
 		<parameter type="int16">
 			<id>"THERM_ONEWIRE_LOGGER"</id>
 			<description>"THERMOMETER_DS18B20"</description>
-			<access-channel channel-name="Modbus" parameter-id="11001"/>
-			<message-channel channel-name="SQLite"/>
+			<source-channel channel-name="OneWire" parameter-id="2876018F050000:temperature9"/>
+			<access-channel channel-name="Modbus" parameter-id="100"/>
+			<event type="OnUpdate">
+				<message-channel channel-name="Database" />
+				<message-id>"update"</message-id>
+			</event>
 		</parameter>
 	</group>
 </imod>
