@@ -8,11 +8,15 @@
 
 		<message-channel name="Database">
 			<protocol name="SQL"/>
-				<port>"/mnt/data/SQL/datos.db"</port>
-				<cycle>"10"</cycle>
+				<port>"/mnt/data/SQL/iModDataLogger.db"</port>
+				<property name="mode" value="direct"/>
+    			<property name="driver" value="SQLITE"/>
 		</message-channel>
-		<message id="update">
-			<![CDATA[ "INSERT INTO X (Value, Date) VALUES ('REG_VALUE[THIS]','TIME');"]]>
+		<message id="datalogger">
+			<![CDATA[INSERT INTO 
+					record (name, label, datetime, value) 
+			 		VALUES 
+			 		('REG_NAME[THIS]', 'REG_LABEL[THIS]', 'TIME', 'REG_VALUE[THIS]');]]>
 		</message>
 
 		<source-channel name="OneWire">
@@ -23,20 +27,14 @@
 		</source-channel>
 
 		<parameter type="int16">
-			<id>"THERM_ONEWIRE"</id>
-			<description>"THERMOMETER_DS18B20"</description>
-			<source-channel channel-name="OneWire" parameter-id="2876018F050000:temperature9"/>
-			<access-channel channel-name="Modbus" parameter-id="11001"/>
-		</parameter>
-
-		<parameter type="int16">
 			<id>"THERM_ONEWIRE_LOGGER"</id>
 			<description>"THERMOMETER_DS18B20"</description>
+			<label>"Contador OneWire"</label>
 			<source-channel channel-name="OneWire" parameter-id="2876018F050000:temperature9"/>
 			<access-channel channel-name="Modbus" parameter-id="100"/>
 			<event type="OnUpdate">
 				<message-channel channel-name="Database" />
-				<message-id>"update"</message-id>
+				<message-id>"datalogger"</message-id>
 			</event>
 		</parameter>
 	</group>

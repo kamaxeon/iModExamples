@@ -50,7 +50,7 @@ iMod daemon not running
 
 ```
 
-Nos genera el fichero [ONEWIREScan.xml](ONEWIREScan.xml) en /mnt/mtd/iMod/conf/
+Nos genera el fichero [ONEWIREScan.xml](ONEWIREScan.xml) en */mnt/mtd/iMod/conf/*
 
 La información de este fichero se usará para los ejemplos como base.
 

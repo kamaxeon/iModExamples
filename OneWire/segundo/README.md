@@ -12,7 +12,7 @@ Modificamos el fichero [ONEWIREScan.xml](../ONEWIREScan.xml) y lo transformamos 
 
 ## Comprobación
 
-Hacemos un select en la base de datos para ver los valores que ha almacenado.
+Miramos el fichero que hemos creado
 
 
 ```
@@ -47,3 +47,7 @@ Name|Value|timeEnter
 THERMOMETER_DS18B20|20|2014-04-10 03:53:15
 
 ```
+
+Ahora puedes continuar con el [tercero][0] :-)
+
+[0]: ../tercero
